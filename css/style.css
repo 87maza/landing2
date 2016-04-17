@@ -1,0 +1,500 @@
+/*===========================================
+General Styles
+=============================================*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background: #fff;
+  color: #555;
+  font-family: 'Lato'; 'Arial'; sans-serif;
+  font-size: 20px;
+  font-weight: 300; /*default weight*/
+  text-rendering: optimizeLegibility;
+}
+
+.row {
+  max-width: 1140px; /*this is the only value that is absolute and in px*/
+  margin: 0 auto; /*all our rows will be centered*/
+}
+
+.clearfix {
+  /*clearfix clear the float after the element, the parent has the clearfix class*/
+  zoom: 1;
+}
+.clearfix:after {
+
+  content: '.';
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+/*----------------ICONS------------------*/
+.icon-big {
+  /*you can style the ionicons like fonts*/
+  font-size: 225%;
+  display: inline-block;
+  color: #e67e22;
+  margin-bottom: 8px;
+}
+
+.icon-small {
+  font-size: 185%;
+  display: inline-block;
+  color: #e67e22;
+  margin-bottom: 10px;
+}
+#js {
+ color: #000; 
+}
+#data {
+ color: #ffdb4d; 
+}
+#node {
+  color: #7FFF00;
+}
+
+/*===========================================
+HEADER STYLES
+=============================================*/
+/* ---- particles.js container ---- */
+
+.content{
+    position: relative;
+    display: block;
+    width: 50vw;
+    height: 100vh;
+    float: right;
+    opacity: 1;
+}
+
+#particles-js {
+  position: fixed;
+  /*width: 100%;  width doesnt do anything, is it because of the vh viewport?*/
+  height: 100vh;
+  width: 50vw;
+  float:left;
+  background-image: linear-gradient(to bottom, rgba(48,48,48,.2) 0%, rgba(48,48,48,2.7) 100%),url("http://www.zastavki.com/pictures/originals/2014/Space_Constellation_gold_fish_085231_.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  /*fixed to parent div*/
+}
+
+.header-text {
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%); 
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  position:absolute;
+  z-index: 2;
+}
+
+
+h1, h2 {
+  margin-top: 0; /*normalize.css adds some margin*/
+  margin-bottom: 15px;
+  color: #fff;
+  font-size: 240%; /*relative to the html global fontsize which is at 20px*/
+  font-weight: 300; /*for big font sizes use smaller font weight*/
+  text-align: center;
+
+}
+h1 {
+  word-spacing: 4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 175%;
+  font-weight: 150;
+  letter-spacing: .5px;
+}
+
+.tagline {
+
+  font-size: 165%;
+  margin-bottom: 15px;
+  font-weight: 300; /*for big font sizes use smaller font weight*/
+  color: black;
+ margin-top: 20px;
+}
+
+
+.header-text h1:after {
+  /*pseudo class adds yellow line between h2 and the immediate paragraph*/
+  display: block; 
+  height: 3.5px; /*thicker hr line*/
+  opacity: 1;
+  background-color: #c8bcac;
+  content: " "; /* add space but no other characters*/
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 15px; /*margin between h2 after and the actual h2, then 30px up and down*/
+}
+
+/*===========================================
+Nav-bar
+=============================================*/
+
+.main-nav{
+    float: left;
+    list-style: none;
+    margin: 1% 25%;
+    position: fixed;
+    z-index: 2;
+
+}
+.main-nav li{
+  display: inline-block; /*li is originally block elements*/
+  margin-left: 60px;
+}
+.main-nav li:first-child {
+  margin-left: 0;
+}
+
+
+.main-nav li a:link,
+.main-nav li a:visited{ 
+  /*link at the visited/current stays stays the same*/
+  padding: 8px 0; /*adding padding between the text and border bottom*/
+  color: #fff;
+  text-decoration: none;  /*no underline*/
+  text-transform: uppercase;
+  font-size: 90%; /*default font size is 20px on the html selector, 18/20 = 90%*/
+  border-bottom: 2px solid transparent; /*border set to transparent until you hover*/
+  transition: border-bottom 0.2s;
+}
+.main-nav li a:active,
+.main-nav li a:hover {
+  border-bottom: 2px solid #c8bcac; /*orange color on highlight of nav buttons*/
+}
+
+/*===========================================
+GITHUB API STRIP
+=============================================*/
+.github-strip{
+  background-image: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #e0f1ff 32%, #fffae3);
+  height: 200px;
+  display: flex;
+}
+
+/*===========================================
+Photo ROW
+=============================================*/
+
+
+
+.image-showcase{
+  list-style: none;
+  width: 100%;
+  display: inline-block;
+
+}
+
+.image-showcase li {
+  /*display images as block and float*/
+  display: block;
+  float: left;/* side by side image*/
+  width: 25%; /*4 x 25 is 100% of the width*/
+}
+
+.image-row{
+  width: 100%; /*has exact with of parent (meal showcase li or 25%)*/
+  margin: 0; /*normalize file has added some margin*/
+  overflow: hidden;/*chilrden inside this div that extend out, those excess will be hidden*/
+}
+.image-row img{
+  opacity: 0.7; /*makes images darker, adds a haze/fade*/
+  width: 100%;
+  height: auto;
+  transform: scale(1.15); /*makes the images bigger than the meal-photo container, it overflows out*/
+  transition: transform 0.5s, opacity 0.5s;
+  background: #000; /*since image is opaque with a black background, image gets darker*/
+}
+.image-row img:hover{
+  opacity:1; /*picture gets lighter on hover*/
+  transform: scale(1.03); /*white line on top images, will be reduced*/
+  /*zoom out effect */
+}
+
+.tagline-container {
+  margin: 0 auto;
+}
+h2#tagline {
+  margin: 0 auto;
+  font-size: 67%;
+  padding-left: 5%;
+}
+
+#tagline {
+
+  display: inline-block;
+  color: black;
+}
+#tagline-div {
+  position: relative;
+  z-index: 999;
+  margin-top: -13%;
+  width: 42%;
+  border: 2px solid black;
+  margin-left: 29.5%;
+  font-size: 240%;
+}
+
+
+
+/*===========================================
+ABOUT ME SECTION
+=============================================*/
+
+.skills-intro{
+  margin-top: 100px;
+}
+
+/*----------------PARAGRAPHS------------------*/
+.long-copy{
+  line-height: 145%;
+  width: 70%;  /*paragraph will no longer be centered after adjusting the width*/
+  margin-left: 15%; /*15% because the total width is 100% the remaining percent should be distributed between left and right*/
+  margin-right: 15%;
+  text-align: center;
+  /*margin-bottom: 30px;   already have a section for this*/ 
+}
+
+.box p {
+  font-size: 90%;
+  line-height: 145%;
+}
+
+/*===========================================
+PORTFOLIO TABS
+=============================================*/
+
+
+article p {
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+.clip-desc p {
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+
+
+main {
+  font: 14px/1 'Open Sans', sans-serif;
+  color: #555;
+  background: #eee;
+  min-width: 320px;
+  /*max-width: 800px; increases the size of the viewport, may need during smaller widths*/ 
+  padding: 50px;
+  margin: 0 auto;
+  background: #fff;
+}
+.project{
+  display: flex;
+}
+
+article {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+input {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+label[for*='1']:before { content: ' '; }
+label[for*='2']:before { content: ' '; }
+label[for*='3']:before { content: ' '; }
+label[for*='4']:before { content: ' '; }
+
+label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid orange;
+  border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #front-end,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  label {
+    font-size: 0;
+  }
+  label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  label {
+    padding: 15px;
+  }
+}
+
+
+
+
+/*===========================================
+FOOTER
+=============================================*/
+
+footer {
+    position: fixed;
+    right: -30px;
+    bottom: -75px;
+    z-index: 5000;
+    width: 500px;
+    height: 140px;
+    padding-top: 15px;
+    padding-right: 40px;
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #134E5E, #71B280); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #134E5E, #71B280); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #134E5E, #71B280); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #134E5E, #71B280); /* Standard syntax */
+    -webkit-transform: rotate(-18deg) scale(.65) translate(25%,40%);
+    -ms-transform: rotate(-18deg) scale(.65) translate(25%,40%);
+    transform: rotate(-18deg) scale(.65) translate(25%,40%);
+    transition: all .5s ease;
+}
+footer:hover{
+  -webkit-transform:rotate(-15deg) scale(1) translate(2%,5%);
+  -ms-transform:rotate(-15deg) scale(1) translate(2%,5%);
+  transform:rotate(-15deg) scale(1) translate(2%,5%)};
+}
+
+.links {
+    float: right;
+    -webkit-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    transform: rotate(15deg);
+}
+.social-links {
+  list-style: none;
+  float: right; 
+}
+.social-links li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.social-links li:last-child {
+  margin-right: 0;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+  text-decoration: none;
+  border: 0;
+  color: #888;
+  transition: color 0.3s;
+}
+.social-links li a:hover,
+.social-links li a:active {
+  color: #ddd;
+}
+
+.ion-email,
+.ion-social-github,
+.ion-social-youtube,
+.ion-social-linkedin-outline {
+  transition: color 0.3s;
+} 
+
+.ion-email:hover {
+  color: #fff;
+}.ion-social-github:hover {
+  color: #fff;
+}.ion-social-youtube:hover {
+  color: #bb0000;
+}.ion-social-linkedin-outline:hover {
+  color: #0077b5;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+  font-size: 160%;
+}
+
+
+@media(max-width: 1000px){
+
+
+  .main-nav li{
+    display: block; /*li is originally block elements*/
+    margin-left: 20px;
+  
+
+  }
+  .main-nav li:first-child {
+    margin-left: 60px;
+  }
+
+}
+
+@media(max-width: 767px){
+
+
+  .main-nav{
+    float: none;
+    list-style: none;
+    margin: 1% 25%;
+    
+    z-index: 2;
+
+  }
+  .main-nav li{
+    display: block; /*li is originally block elements*/
+    margin-left: 60px;
+    text-align: center;
+
+  }
+  .main-nav li:first-child {
+    margin-left: 60px;
+  }
+}
+
+
