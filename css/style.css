@@ -224,6 +224,22 @@ Nav-bar
   -webkit-filter: blur(0);
 }
 
+.hamburger {
+  position: fixed;
+  left: -40px;
+  top: -80px;
+  z-index: 1000;
+  width: 450px;
+  height: 140px;
+  padding-top: 35px;
+  padding-left: 54px;
+  background-color: #1f3447;
+  background-image: none;
+  -webkit-transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+}
+
 /*===========================================
 GITHUB API STRIP
 =============================================*/
