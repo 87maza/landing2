@@ -194,8 +194,9 @@ Nav-bar
 }
 .main-nav li{
   display: inline-block; /*li is originally block elements*/
-  margin: 1% 6% 2%;
+  margin: 1% 3% 2%;
   text-align: center;
+  letter-spacing: 2px;
   filter: blur(0);
   -webkit-filter: blur(1px);
   
@@ -215,8 +216,7 @@ Nav-bar
   font-size: 90%; /*default font size is 20px on the html selector, 18/20 = 90%*/
   border-bottom: 2px solid transparent; /*border set to transparent until you hover*/
   transition: border-bottom 0.2s;
-  filter: blur(0);
-  -webkit-filter: blur(0);
+
 }
 .main-nav li a:active,
 .main-nav li a:hover {
@@ -238,15 +238,18 @@ Nav-bar
   -webkit-transform: rotate(-15deg);
   -ms-transform: rotate(-15deg);
   transform: rotate(-15deg);
+  display:none;
 }
 
 /*===========================================
-GITHUB API STRIP
+API STRIP
 =============================================*/
-.github-strip{
-  /*background-image: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #e0f1ff 32%, #fffae3);*/
+.api-strip{
+  background-image:url('../images/greyzbg.png');
   height: 200px;
   display: flex;
+  margin-top: 30px;
+
 }
 
 /*===========================================
@@ -318,9 +321,10 @@ h2#tagline {
 /*===========================================
 ABOUT ME SECTION
 =============================================*/
-
 .skills-intro{
-  margin-top: 100px;
+}
+#line p {
+  text-align: justify;
 }
 
 /*----------------PARAGRAPHS------------------*/
@@ -338,6 +342,17 @@ ABOUT ME SECTION
   line-height: 145%;
 }
 
+.jslog {
+  padding: 0 37px;
+  line-height: 28px;
+  text-align: center;
+  display: block;
+}
+.jslog:not(:first-child) {
+  margin-top: 10px;
+}
+
+
 /*===========================================
 PORTFOLIO TABS
 =============================================*/
@@ -351,8 +366,6 @@ article p {
   margin: 0 0 20px;
   line-height: 1.5;
 }
-
-
 
 main {
   font: 14px/1 'Open Sans', sans-serif;
@@ -460,11 +473,22 @@ footer {
     transform: rotate(-18deg) scale(.65) translate(25%,40%);
     transition: all .5s ease;
 }
+
+footer p{
+  padding-left: 258px;
+  color: white;
+  font-size: 10px;
+  display: none;
+}
+
 footer:hover{
   -webkit-transform:rotate(-15deg) scale(1) translate(2%,5%);
   -ms-transform:rotate(-15deg) scale(1) translate(2%,5%);
   transform:rotate(-15deg) scale(1) translate(2%,5%)};
 }
+
+
+
 
 .links {
     float: right;
