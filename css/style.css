@@ -48,7 +48,7 @@ canvas {
 }
 
 .icon-small {
-  font-size: 185%;
+  font-size: 110%;
   display: inline-block;
   color: #e67e22;
   margin-bottom: 10px;
@@ -360,11 +360,15 @@ PORTFOLIO TABS
 
 article p {
   margin: 0 0 20px;
-  line-height: 1.5;
 }
 .clip-desc p {
   margin: 0 0 20px;
   line-height: 1.5;
+  margin-bottom: 0;
+}
+.clip-desc h3 {
+  text-decoration: underline;
+  margin-top: 2px;
 }
 
 main {
@@ -429,6 +433,17 @@ input:checked + label {
 #tab3:checked ~ #content3,
 #tab4:checked ~ #content4 {
   display: block;
+}
+
+.links {
+  height: inherit;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items:flex-end; 
+}
+.clip-desc {
+  height: inherit;
+  padding: 5px 10px;
 }
 
 @media screen and (max-width: 650px) {
