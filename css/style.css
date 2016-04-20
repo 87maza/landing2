@@ -54,6 +54,7 @@ canvas {
   color: #e67e22;
   margin-bottom: 10px;
 }
+/*individual colors for the ionicons*/
 #js {
  color: #000; 
 }
@@ -86,9 +87,6 @@ HEADER STYLES
   background-image: linear-gradient(to bottom, rgba(48,48,48,.2) 0%, rgba(48,48,48,2.7) 100%),url("../images/space.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  /*background-position: 50% 50%;*/
-  /*background-attachment: fixed;*/
-  /*fixed to parent div*/
 }
 
 .header-text {
@@ -109,8 +107,18 @@ h1, h2 {
   font-size: 240%; /*relative to the html global fontsize which is at 20px*/
   font-weight: 300; /*for big font sizes use smaller font weight*/
   text-align: center;
-
 }
+h1 {
+  word-spacing: 4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 175%;
+  font-weight: 150;
+  letter-spacing: .5px;
+}
+
 .header-text h2{
   white-space:nowrap;
   margin-top: 14px;
@@ -126,25 +134,12 @@ h1, h2 {
   border-bottom: 3.5px solid #c8bcac;
   opacity: 1;
   margin: 0 2em;
-/*  border-color: #c8bcac;
-  border-style: solid;*/
 }
 
 
-
+/*send this to bottom for media queries*/
 @media screen and (max-width: 900px) {
     .header-text h1{font-size: 130%;}
-}
-
-h1 {
-  word-spacing: 4px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-h2 {
-  font-size: 175%;
-  font-weight: 150;
-  letter-spacing: .5px;
 }
 
 @-webkit-keyframes type{ 
@@ -357,10 +352,6 @@ ABOUT ME SECTION
 PORTFOLIO TABS
 =============================================*/
 
-
-/*article p {
-  margin: 0 0 ;
-}*/
 .clip-desc p {
   margin: 0 0 20px;
   line-height: 1.5;
@@ -381,7 +372,6 @@ main {
   color: #555;
   background: #eee;
   min-width: 320px;
-  /*max-width: 800px; increases the size of the viewport, may need during smaller widths*/ 
   padding: 50px;
   margin: 0 auto;
   background: #fff;
