@@ -372,7 +372,7 @@ main {
   color: #555;
   background: #eee;
   min-width: 320px;
-  padding: 50px;
+  padding: 50px 20px;
   margin: 0 auto;
   background: #fff;
 }
