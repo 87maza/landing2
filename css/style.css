@@ -15,6 +15,10 @@ html {
   font-weight: 300; /*default weight*/
   text-rendering: optimizeLegibility;
 }
+body{
+  display: table;
+  width: 100%;
+}
 
 .row {
   max-width: 1140px; /*this is the only value that is absolute and in px*/
@@ -71,19 +75,21 @@ HEADER STYLES
 /* ---- particles.js container ---- */
 
 .content{
-    position: relative;
+    position: absolute;
     display: block;
-    width: 50vw;
+    width: 50%;
+    right: 0px;
     height: 100vh;
-    float: right;
+    /*float: right;*/
     opacity: 1;
 }
 
 #particles-js {
   position: fixed;
   height: 100vh;
-  width: 50vw;
-  float:left;
+  width: 50%;
+  left: 0px;
+  /*float:left;*/
   background-image: linear-gradient(to bottom, rgba(48,48,48,.2) 0%, rgba(48,48,48,2.7) 100%),url("../images/space.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -124,7 +130,7 @@ h2 {
   margin-top: 14px;
   overflow:hidden;
   width: 18em;
-  animation: type 4s steps(60, end);
+  /*animation: type 4s steps(60, end);*/
 }
 .header-text span{
   animation: blink 1s infinite;
@@ -142,16 +148,16 @@ h2 {
     .header-text h1{font-size: 130%;}
 }
 
-@-webkit-keyframes type{ 
+/*@-webkit-keyframes type{ 
   from { width: 0; } 
-} 
+} */
 
 @-webkit-keyframes blink{
   to{opacity: .0;}
 }
-@-moz-keyframes type{ 
+/*@-moz-keyframes type{ 
   from { width: 0; } 
-} 
+} */
 
 @-moz-keyframes blink{
   to{opacity: .0;}
@@ -195,6 +201,7 @@ Nav-bar
   letter-spacing: 2px;
   filter: blur(0);
   -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
   
 }
 /*.main-nav li:first-child {
@@ -245,6 +252,19 @@ API STRIP
   height: 200px;
   display: flex;
   margin-top: 30px;
+  align-items: center;
+}
+.githubRepo {
+  font-family: monaco, Consolas, 'Lucida Console', monospace;
+  font-size: 75%;
+  margin-left: 35%;
+}
+.tabbed {
+  padding-left: 20px;
+}
+.midsize{
+  font-size: 310%;
+  text-align: center;
 }
 
 /*===========================================
@@ -375,6 +395,7 @@ main {
   padding: 50px 20px;
   margin: 0 auto;
   background: #fff;
+
 }
 .project{
   display: flex;
@@ -384,6 +405,8 @@ article {
   display: none;
   padding: 20px 0 0;
   border-top: 1px solid #ddd;
+    height: 550px;
+  overflow: scroll;
 }
 
 input {
@@ -457,7 +480,16 @@ input:checked + label {
   }
 }
 
-
+/*===========================================
+MAP AND CONTACT
+=============================================*/
+.location{
+  /*padding: 0 35px;*/
+}
+#map {
+  height: 200px;
+  width: 80%;
+}
 
 
 /*===========================================

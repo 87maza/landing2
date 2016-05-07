@@ -68,9 +68,13 @@
     </div> <!-- end of row div-->
   </section>
   <section class="api-strip">
-    <div class="commit-count"></div>
-    <div class="graph"></div>
-    <div class="line-count"></div>
+    <div class="githubRepo">
+    <p><i class='ion-social-github-outline midsize'></i></p>
+    <p>var githubJSON = { </p>
+    <p class='tabbed'>"username": "<span id="login"></span>",</p>
+    <p class='tabbed'>"repos": <span id="repocount"></span></p>
+    <p>}</p>
+    </div>
   </section>
   <section class="skills-intro">
 
@@ -130,7 +134,7 @@
           </p>
           <div class="links">
             <p>
-              <a href="#"><i class="ion-android-laptop icon-small">View Project</i></a> | 
+              <a href="tickytacky.html"><i class="ion-android-laptop icon-small">View Project</i></a> | 
               <a href="#"><i class="ion-social-octocat icon-small"> Github</i></a> | 
               <a href="#"><i class="ion-social-codepen icon-small"> Codepen</i></a>
             </p>
@@ -268,9 +272,15 @@
     </article>    
   </main>
 
+<section class = "location">
+  <div id="map"></div>
+  <p>Made and crafted from Orange County, California</p>
+</section>
+
+
   <footer>
     <div class="links">
-        <p>Made with love from Orange County, California</p>
+        
         <ul class="social-links">
           <li><a href="mailto:87maza@gmail.com"><i class="ion-email"></i></a></li>
           <li><a href="https://github.com/87maza"><i class="ion-social-github"></i></a></li>
@@ -283,5 +293,8 @@
   </body>
     <script src='http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
     <script src="js/particlesConfig.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+<!--      // <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAddLQ5yI4LsLFXsxCyb95_WNZ_OuQzM6U&callback=initMap" async defer></script> -->
+     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script src="js/script.js"></script>
 </html>
