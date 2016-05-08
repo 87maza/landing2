@@ -484,7 +484,7 @@ input:checked + label {
 MAP AND CONTACT
 =============================================*/
 .location{
-  /*padding: 0 35px;*/
+  padding: 0 35px;
 }
 #map {
   height: 200px;
