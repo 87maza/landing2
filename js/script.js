@@ -38,9 +38,9 @@ $.ajax({
 
         // Let's also add a marker while we're at it
         var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(33.876118, -117.921410),
-            map: map,
-            title: 'Hero!'
+          position: new google.maps.LatLng(33.876118, -117.921410),
+          map: map,
+          title: 'Hero!'
         });
     }
 // ripped from CSS-TRICKS.COM! yay scroll spy
@@ -59,4 +59,16 @@ $(function() {
 	      }
 	    }
 	});
+});
+//sticky nav for smaller screens
+var  navi = $("navi");
+    mns = "main-nav-scrolled";
+    part = $('#particles-js').height();
+
+$(window).scroll(function() {
+  if( $(this).scrollTop() > part ) {
+    navi.addClass(mns);
+  } else {
+    navi.removeClass(mns);
+  }
 });
