@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Martin Maza | CalculadorJS</title>
+        <meta name="description" content="">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/android-icon-192x192.png"> 
+        <link rel="stylesheet" href="css/normalize.css" media="screen">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/style.css">  
+        
+  </head>
+<body>
+<style>
+	/*===============================
+GENERAL STYLES (page background color)
+================================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+html{
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  background-image: url("http://www.epicenternetwork.eu/wp-content/uploads/slider-wd/6078030705_6ae37bb1f6_b.jpg");
+  height: 100vh;
+  margin: 0 auto; /*all our rows will be centered*/
+    background-repeat: no-repeat;
+  background-size: cover;
+}
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+
+
+
+/*===============================
+HEADINGS
+================================*/
+h1{
+  font-weight: 200;
+  font-size: 25px;
+  margin-bottom: 8px;
+  text-align: center
+}
+.js{
+  background: #ffe680;
+  text-align: right;
+  font-weight: 400;
+  font-size: 26px;
+}
+.brand{
+  vertical-align: super;
+  font-weight: 800;
+  font-size: 12px;
+  font-style: italic;
+}
+
+
+
+/*===============================
+CALCULATOR BODY STYLES
+================================*/
+.calculator{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /*I know its an italian flag not the mexican flag, its missing the eagle in the center*/
+/*  border-radius: 3px;
+  padding: 20px 20px 9px;*/
+}
+
+
+/*===============================
+CALCULATOR BUTTONS
+================================*/
+input:focus {
+  outline: none;
+}
+input[type=button]
+{
+    background-color: #1E1E1E;
+    color: #979797;
+    height: 24px;
+    width: 103px;
+    color: #bbbbbb;
+    text-transform:uppercase;
+    box-shadow:-1px 2px #6E6B6A inset;   
+}
+ input[type=button]:active {
+  top: -1px;
+}
+
+#button, #clear, #add, #multiply, #subtract, #divide, #equals, #decimal, #negative{
+/*#button, #oper, #equals, #decimal{*/
+  width: 60px;
+  height: 60px;
+  font-size: 12px;
+  border-radius: 3px;
+  margin: 2px;
+  text-align: center;
+}
+
+
+
+
+/*===============================
+CALCULATOR SCREEN
+================================*/
+#screen2 {
+    width: 256px;
+    height: 23px;
+    text-align: right;
+    font-size: 18px;
+    border-radius: 8px;
+    margin: 3px;
+    margin-bottom:5px;
+    display: block;
+
+}
+
+#screen {
+    width: 256px;
+    height: 53px;
+    text-align: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+    border-radius: 8px;
+    margin: 3px;
+    margin-bottom:5px;
+
+}
+
+
+
+
+form{
+
+}
+
+
+
+
+
+
+</style>
+	<div class="calculator">
+		<form>
+			<h1><span class="brand">MartinSoft</span> El Calculador<span class="js">JS<span></h1>
+			 <input name="screen" id="screen2" disabled> 
+			<input name="screen" id="screen" disabled>
+			<br>
+			<input type="button" id="button" value="siete" onClick="printToScreen('7')">
+			<input type="button" id="button" value="ocho" onClick="printToScreen('8')">
+			<input type="button" id="button" value="nueve" onClick="printToScreen('9')">
+			<input type="button" class"opers" id="subtract" value="-">
+			<br>
+			<input type="button" id="button" value="cuatro" onClick="printToScreen('4')">
+			<input type="button" id="button" value="cinco" onClick="printToScreen('5')">
+			<input type="button" id="button" value="seis" onClick="printToScreen('6')">
+			<input type="button" class"opers" id="add" value="+">
+			<br>
+			<input type="button" id="button" value="uno" onClick="printToScreen('1')">
+			<input type="button" id="button" value="dos" onClick="printToScreen('2')">
+			<input type="button" id="button" value="tres" onClick="printToScreen('3')">
+			<input type="button" class"opers" id="multiply" value="*">
+			<br>
+			<input type="button" id="button" value="cero" onClick="printToScreen('0')">
+			<input type="button" class"opers" id="divide" value="/">
+			<input type="button" class"opers" id="decimal" value=".">
+			<input type="button" class"opers" id="equals" value="=">
+			<br>
+			<input type="button" id="clear" value="Clearo">
+			<input type="button" class"opers" id="negative" value="&plusmn;">
+	</div>
+		</form>
+<script>
+	var display = document.getElementById("screen");  //grabs input screen stores it in a variable
+var cons = document.getElementById("screen2");
+display.value = "0";
+var result;  //establish this variable for the calculate() function
+var num1, num2;
+	var oper = {
+		'+': function(a, b) {
+	        return a + b;
+	    },
+	    '*': function(a, b) {
+	        return a * b;
+	    },
+	    '/': function(a, b) {
+	        return a / b;
+	    },
+	    '-': function(a, b) {
+	        return a - b;
+	    }
+	}
+	//object-oriented for simpler operation commands
+
+function printToScreen(x){
+	if (display.value === "0") {
+		display.value = '';
+	}
+	display.value += x;
+	cons.value += x;
+	//+= because you concatenate the strings when x is greater than single digits
+	//function will concatenate the numbers as strings and log onto the screen  tied to onclick() html
+}
+
+var add = document.getElementById('add');
+add.addEventListener('click', function(){
+	//on click, num1 is established and turned in the a decimal friendly number, operator is established by button and screen is cleared
+	num1 = parseFloat(display.value);
+	sign = add.value;
+	display.value='';
+	cons.value = num1 + sign;
+});
+
+var subtract = document.getElementById('subtract');
+subtract.addEventListener('click', function(){
+	num1 = parseFloat(display.value);
+	sign = subtract.value;
+	display.value='';
+	cons.value = num1 + sign;
+});
+
+var divide = document.getElementById('divide');
+divide.addEventListener('click', function(){
+	num1 = parseFloat(display.value);
+	sign = divide.value;
+	display.value='';
+	cons.value = num1 + sign;
+});
+
+var multiply = document.getElementById('multiply');
+multiply.addEventListener('click', function(){
+	num1 = parseFloat(display.value);
+	sign = multiply.value;
+	display.value='';
+	cons.value = num1 + sign;
+});
+
+var equals = document.getElementById('equals');
+equals.addEventListener('click',function(){
+	//on click, num2 is established, parameters are set for the NaN and other catch-alls
+	num2 = parseFloat(display.value);
+	if (num2 === 0 && sign === divide.value){
+		display.value = "don't divide by 0";
+		return;
+	}
+	else if (num2 === NaN){
+		var arrayNaN = num2.split('')
+		var split = arrayNaN.filter(checker);
+		num2 = split.join('');
+		return split.join('');
+
+			function checker(x){
+				return Boolean(x);
+			}
+
+	}
+
+	result = parseFloat(oper[sign](num1,num2));
+	//result established decimal friendly and uses the operation objects
+	console.log(result);
+	display.value = result;
+	cons.value = num1 + sign + num2 + "=" + result;
+});
+
+var clear = document.getElementById('clear');
+clear.addEventListener('click', function(){
+	//clear button temp fix, i tried using the html onclick, but it never worked, hand rolled vanilla js works
+	display.value = '';
+	window.location.reload();
+	console.log("ipressedc");
+});	
+
+var decimal = document.getElementById('decimal');
+decimal.addEventListener('click', function(){
+	var dotCheck = display.value
+		if(dotCheck.indexOf('.') === -1) {
+			display.value = dotCheck += ".";
+			console.log(dotCheck);
+			if (display.value === NaN) {
+				display.value = "0."
+			}
+		}
+		else{
+			dotCheck = display.value;
+			console.log('no more decimals brah')
+		}
+});
+
+var negClick = false;
+var negative = document.getElementById('negative');
+negative.addEventListener('click', function(){
+	if (negClick === false) {
+		display.value = "-" + display.value;
+		negClick = true;
+		console.log("neg sign is on");
+		return;
+	}
+	if (negClick === true) {
+		negClick=false;
+		display.value = display.value.slice(1, display.value.length);
+		console.log("negative sign is off");
+		return;
+	}
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Martin Maza | S&iacute; Mon, Simon!</title>
+        <meta name="description" content="">
+        <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+        <link rel="icon" type="image/png" sizes="16x16" href="images/android-icon-192x192.png"> 
+        <link rel="stylesheet" href="css/normalize.css"> 
+  </head>
+  <body>
+<style>
+  /*===========================================
+General Styles
+=============================================*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+html{
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  height: 100vh;
+  margin: 0 auto; /*all our rows will be centered*/
+    -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 320px;
+  height: 320px;
+  border: none;
+  font: normal 100%/normal Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: -webkit-linear-gradient(117deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), -webkit-linear-gradient(297deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), -webkit-linear-gradient(117deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), -webkit-linear-gradient(297deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), -webkit-linear-gradient(left, rgb(27,27,27) 10px, rgba(0,0,0,0) 10px), -webkit-linear-gradient(rgb(29,29,29) 25%, rgb(26,26,26) 25%, rgb(26,26,26) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgb(36,36,36) 75%, rgb(36,36,36) 100%), rgb(19, 19, 19);
+  background: -o-linear-gradient(117deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), -o-linear-gradient(297deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), -o-linear-gradient(117deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), -o-linear-gradient(297deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), -o-linear-gradient(left, rgb(27,27,27) 10px, rgba(0,0,0,0) 10px), -o-linear-gradient(rgb(29,29,29) 25%, rgb(26,26,26) 25%, rgb(26,26,26) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgb(36,36,36) 75%, rgb(36,36,36) 100%), rgb(19, 19, 19);
+  background: linear-gradient(207deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), linear-gradient(27deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), linear-gradient(207deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), linear-gradient(27deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), linear-gradient(to right, rgb(27,27,27) 10px, rgba(0,0,0,0) 10px), linear-gradient(rgb(29,29,29) 25%, rgb(26,26,26) 25%, rgb(26,26,26) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgb(36,36,36) 75%, rgb(36,36,36) 100%), rgb(19, 19, 19);
+  background-position: 0 5px, 10px 0, 0 10px, 10px 5px, 0 0, 0 0;
+  -webkit-background-origin: padding-box;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: 20px 20px;
+  background-size: 20px 20px;
+}
+body{
+  position: relative;
+}
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 2%);
+  height: 480px;
+  width: 480px;
+}
+#center{
+  position: relative;
+}
+h1,h2{
+  display: inline-block;
+  font-size: 3em;
+  font-style: italic;
+  margin: 0 auto;
+  -webkit-margin-after: 0;
+  -webkit-margin-before: 0;
+
+} 
+button{
+background: #a048b9 -webkit-linear-gradient(50deg, #a048b9 0%, #a048b9 10%, #9845b0 10%, #9845b0 20%, #8c40a3 19%, #9041a6 21%, #9041a6 20%, #9041a6 30%, #853c99 29%, #883e9d 31%, #883e9d 30%, #883e9d 40%, #7d3990 39%, #803a94 41%, #803a94 40%, #803a94 50%, #753587 49%, #78368b 51%, #78368b 50%, #78368b 60%, #6d317e 59%, #703381 61%, #703381 60%, #703381 70%, #652e74 69%, #682f78 71%, #682f78 70%, #682f78 80%, #5d2a6b 79%, #602b6f 81%, #602b6f 80%, #602b6f 90%, #552662 89%, #582866 91%, #582866 90%, #582866 100%);
+background: #a048b9 -o-linear-gradient(50deg, #a048b9 0%, #a048b9 10%, #9845b0 10%, #9845b0 20%, #8c40a3 19%, #9041a6 21%, #9041a6 20%, #9041a6 30%, #853c99 29%, #883e9d 31%, #883e9d 30%, #883e9d 40%, #7d3990 39%, #803a94 41%, #803a94 40%, #803a94 50%, #753587 49%, #78368b 51%, #78368b 50%, #78368b 60%, #6d317e 59%, #703381 61%, #703381 60%, #703381 70%, #652e74 69%, #682f78 71%, #682f78 70%, #682f78 80%, #5d2a6b 79%, #602b6f 81%, #602b6f 80%, #602b6f 90%, #552662 89%, #582866 91%, #582866 90%, #582866 100%);
+background: #a048b9 linear-gradient(140deg, #a048b9 0%, #a048b9 10%, #9845b0 10%, #9845b0 20%, #8c40a3 19%, #9041a6 21%, #9041a6 20%, #9041a6 30%, #853c99 29%, #883e9d 31%, #883e9d 30%, #883e9d 40%, #7d3990 39%, #803a94 41%, #803a94 40%, #803a94 50%, #753587 49%, #78368b 51%, #78368b 50%, #78368b 60%, #6d317e 59%, #703381 61%, #703381 60%, #703381 70%, #652e74 69%, #682f78 71%, #682f78 70%, #682f78 80%, #5d2a6b 79%, #602b6f 81%, #602b6f 80%, #602b6f 90%, #552662 89%, #582866 91%, #582866 90%, #582866 100%);  border:1px solid white;
+  font-size:1em;
+  color:white;
+  margin: 0 auto;
+  text-align: center;
+  margin: 0 13em;
+  border-radius: 2px;
+  padding: 1px 5px;
+  opacity: .7;
+}
+button:hover{opacity: 1;}
+h2{
+  font-size: 2em;
+  padding-left: 5em;
+}
+
+.squares{
+    height: 50%;
+    width: 49%;
+    border: 1px dotted gray;
+    display: inline-block;
+    border-radius: 40px;
+  position: relative;
+}
+
+.squares h3{
+  color: #F8F8F8;
+  position: absolute;
+  transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  display: none;
+}
+.squares:hover h3{
+  color: #000;
+  position: absolute;
+  transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    display: block;
+}
+#red{background-color: red;}
+#blue{background-color: blue;}
+#green{background-color: green;}
+#yellow{background-color: yellow;}
+
+.light {
+  height: 50%;
+    width: 49%;
+    border: 1px dotted gray;
+    display: inline-block;
+    border-radius: 40px;
+  position: relative;
+  animation-name: highlight;
+  animation-duration: 1s;
+}
+
+@keyframes highlight {
+    from {border: 1px dotted gray;}
+    to {border: 15px solid #FAEBD7;}
+}
+
+.light h3{
+  color: #000;
+  position: absolute;
+  transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    display: block;
+}
+
+#red:hover{
+  background: radial-gradient(circle, red, grey);
+    opacity: 0.9;
+    border-radius: 40px;
+
+}
+#blue:hover{
+  background: radial-gradient(circle, blue, grey);
+    opacity: 0.9;
+    border-radius: 40px;
+}
+#green:hover{
+  background: radial-gradient(circle, green, grey);
+    opacity: 0.9;
+    border-radius: 40px;
+}
+#yellow:hover{
+    background: radial-gradient(circle, yellow, grey);
+    opacity: 0.9;
+    border-radius: 40px;
+}
+
+</style>
+    <div class="container">
+    <div id='center'><h1>S&iacute; Mon!</h1>
+      <h2>Round: <span id='round'>1</span></h2>
+      <button id="reset">Reset</button>
+      <audio id="bryan" src="images/bryan.mp3"></audio>
+    </div>
+      <div class="squares" id="red">
+        <audio class="sound" id="redSound" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></audio>
+        <h3>RED</h3>
+      </div>
+      <div class="squares" id="green">
+        <audio class="sound" id="greenSound" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></audio>
+        <h3>GREEN</h3>
+      </div>
+      <div class="squares" id="blue">
+        <audio class="sound" id="blueSound" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></audio>
+        <h3>BLUE</h3>
+      </div>
+      <div class="squares" id="yellow">
+        <audio class="sound" id="yellowSound"src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></audio>
+        <h3>YELLOW</h3>
+      </div>
+      
+    </div>
+    <script>
+    var success = false;
+var round = 1;
+var winningCombos = [];
+var humanCombos = [];
+var redSound = document.getElementById('redSound');
+var blueSound = document.getElementById('blueSound');
+var greenSound = document.getElementById('greenSound');
+var yellowSound = document.getElementById('yellowSound');
+var bryan = document.getElementById('bryan');
+bryan.load();
+var reset = document.getElementById('reset');
+reset.addEventListener('click', function(){
+  bryan.play();
+  alert('Bryan McKnight-"Started Back at One"');
+  round = 1;
+  winningCombos = [];
+  humanCombos = [];
+  document.getElementById('round').innerText = round;
+});
+var red = document.getElementById('red');
+red.addEventListener('click', function(){
+  redSound.play();
+  humanCombos.push('red');
+  checkWinner();
+});
+var blue = document.getElementById('blue');
+blue.addEventListener('click', function(){
+  blueSound.play();
+  humanCombos.push('blue');
+  checkWinner();
+});
+var green = document.getElementById('green');
+green.addEventListener('click', function(){
+  greenSound.play();
+  humanCombos.push('green');
+  checkWinner();
+});
+var yellow = document.getElementById('yellow');
+yellow.addEventListener('click', function(){
+  yellowSound.play();
+  humanCombos.push('yellow');
+  checkWinner();
+});
+
+function random() {
+  var colors = [red, blue, green, yellow];
+  var sounds = [redSound, blueSound, greenSound, yellowSound];
+  var num = Math.floor(Math.random() * 3) + 1;
+  var rand = colors[num];
+  var randSound = sounds[num];
+  rand.classList.add('light');
+  winningCombos.push(rand.children[1].innerText.toLowerCase());
+  randSound.play();
+  setTimeout(function(){
+    rand.classList.remove('light');
+  }, 1000);
+  humanCombos.pop();  //doubles down on the humanCombos, need to pop it
+
+}
+function checkWinner() {
+  if(humanCombos.length >= winningCombos.length && humanCombos.join('') !== winningCombos.join('')){
+    alert('try again =(');
+    roundUp();
+    winningCombos=[];
+    humanCombos = [];
+    return;
+  }
+  if(humanCombos.length>winningCombos.length) {
+    humanCombos = [];
+    checkWinner();
+  }
+  if(humanCombos.length > 0) {
+    if(humanCombos.join('')===winningCombos.join('')){
+      alert('hell yeah =)');
+      document.getElementById('round').innerText = round+1;
+      success = true;
+      round++
+      winningCombos = [];
+      humanCombos = [];
+      roundUp();
+    }
+  }
+  return;
+}
+function roundUp(){
+  if(round>=20){
+    alert('ok bro you win! =)')
+  }
+  for (var i=0; i<round; i++) {
+    (setTimeout(function(){
+      random();
+    }, 1500*i));
+  }
+}
+
+</script>
+  </body>
+</html>

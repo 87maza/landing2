@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Martin Maza | Johnny Pomodoro</title>
+        <meta name="description" content="">
+        <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+        <link rel="icon" type="image/png" sizes="16x16" href="images/android-icon-192x192.png"> 
+        <link rel="stylesheet" href="css/flipclock.css">
+        <link rel="stylesheet" href="css/normalize.css">
+  </head>
+    <body>
+    <style>
+    /*===========================================
+General Styles
+=============================================*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  background-repeat: no-repeat;
+  /*background-position: center; looks better off-center*/
+  background-size: cover;
+
+}
+
+html{
+  /*position: relative;*/
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-image: url('../img/zenbg.jpg');
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+html:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right,#F4D03F,#16A085);
+    opacity: .4;
+}
+.container{
+  position: relative;
+}
+
+button{
+  position: relative;
+  z-index: 10;
+}
+
+h1{
+  font-family: 'Merienda One', Helvetica, sans-serif;
+  font-size: 420%;
+  margin: 0.17em 0 0 0;
+  font-weight: 100;
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.adjustments {
+  -moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+  -webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+  box-shadow:inset 0px -3px 7px 0px #29bbff;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+  background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+  background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+  background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+  background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+  background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+  background-color:#2dabf9;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border-radius:3px;
+  border:1px solid #0b0e07;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  padding:5px 10px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #263666;
+}
+.adjustments:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+  background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+  background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+  background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+  background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+  background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+  background-color:#0688fa;
+}
+.adjustments:active {
+  position:relative;
+  top:1px;
+}
+
+.chill-screen,
+.work-screen {
+  background: black;
+  color: yellow;
+  display:inline-block;
+}
+
+.work, .chill {
+  margin-left: 11%;
+  margin-top: 1%;
+}
+
+.chill{
+  margin-top: 3%;
+}
+
+#decrease-chill,
+#increase-chill,
+#decrease-work,
+#increase-work{
+  font-size:20px;
+  padding:2px 9px;
+}
+
+.reset{
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #973A34), color-stop(1, #1D4350));
+  background-color:#973A34;
+  -webkit-box-shadow:inset 0px -3px 7px 0px #973A34;
+}
+
+.reset:hover{
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #24424E), color-stop(1, #2dabf9));
+}
+
+#chill-set,
+#work-set{
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #347136), color-stop(1, #1D4350));
+  background-color:#347136;
+  -webkit-box-shadow:inset 0px -3px 7px 0px #347136;
+}
+
+#chill-set:hover,
+#work-set:hover{
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #79B955), color-stop(1, #79B955));
+}
+
+    </style>
+        <div class="container">
+            <h1>Johnny Pomodoro.</h1>
+            <div class="work">
+                <div class="work-adjust">
+                    <p class="work-screen"><span id='work-screen'></span> minutes</p>
+                    <button class="adjustments" id="decrease-work" onclick="">-</button>
+                    <button class="adjustments" id="increase-work"onclick="">+</button>
+                    <button class="adjustments reset" onclick="resetWork()">Reset</button>
+                    <button class="adjustments" id="work-set" onclick="workstart()">Start!</button>
+                </div>
+                <div class="work-timer">
+                </div>
+            </div>
+            <div class="chill">
+                <div class="chill-adjust">
+                    <p class="chill-screen"><span id='chill-screen'></span> minutes</p>
+                    <button class="adjustments" id="decrease-chill" onclick="">-</button>
+                    <button class="adjustments" id="increase-chill"onclick="">+</button>
+                    <button class="adjustments reset" onclick="resetChill()">Reset</button>
+                    <button class="adjustments" id="chill-set" onclick="chillstart()">Start!</button>
+                </div><!-- end of work-adjust div -->
+                <div class="chill-timer">
+                </div>
+            </div>
+        </div>
+        <audio id="work-comp" src="http://www.soundjay.com/ambient/boarding-accouncement-1.mp3"></audio>
+        <audio id="chill-comp" src="http://www.soundjay.com/nature/fire-1.mp3"></audio>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="js/flipclock.min.js"></script>
+        <script>
+            //abandoned vanilla flipclock =(
+var workMinutes = 25;
+var chillMinutes = 5;
+var work = $('.work-timer').FlipClock(workMinutes*60, {
+    clockFace: 'MinuteCounter',
+    countdown: true,
+    autoStart: false
+});
+
+var chill = $('.chill-timer').FlipClock(chillMinutes*60, {
+    clockFace: 'MinuteCounter',
+    countdown: true,
+    autoStart: false
+});
+
+var deleteLabels = document.getElementsByClassName('flip-clock-label');
+    deleteLabels[0].remove();
+    deleteLabels[0].remove();
+    deleteLabels[0].remove();
+    deleteLabels[0].remove();
+//tried a for loop and a map but it did not delete the tabs...weird...
+
+
+
+
+var workscreen = document.getElementById('work-screen');
+workscreen.innerHTML = workMinutes;
+
+var chillscreen = document.getElementById('chill-screen');
+chillscreen.innerHTML = chillMinutes;
+
+var workIncrease = document.getElementById('increase-work');
+workIncrease.addEventListener('click', wincreaser);
+var workDecrease = document.getElementById('decrease-work');
+workDecrease.addEventListener('click', wdecreaser)
+function wincreaser() {
+    if(workMinutes >= 0){
+
+        workMinutes++;
+        workscreen.innerHTML = workMinutes;
+        work.getTime().time = workMinutes * 60;
+    }
+    if(workMinutes > 59){
+        alert('You got\'s to chill');
+        workMinutes=59;
+    }
+}
+function wdecreaser() {
+    if(workMinutes > 0){
+        workMinutes--;
+        workscreen.innerHTML = workMinutes;
+        work.getTime().time = workMinutes * 60;
+    }
+    else{
+        alert('You gotta work!');
+    }
+}
+
+var chillIncrease = document.getElementById('increase-chill');
+chillIncrease.addEventListener('click', cincreaser);
+var chillDecrease = document.getElementById('decrease-chill');
+chillDecrease.addEventListener('click', cdecreaser)
+function cincreaser() {
+    if(chillMinutes >= 0){
+
+        chillMinutes++;
+        chillscreen.innerHTML = chillMinutes;
+        chill.getTime().time = chillMinutes * 60;
+    }
+    if(chillMinutes > 59){
+        alert('You got\'s to chill');
+        chillMinutes=59;
+    }
+}
+function cdecreaser() {
+    if(chillMinutes > 0){
+        chillMinutes--;
+        chillscreen.innerHTML = chillMinutes;
+        chill.getTime().time = chillMinutes * 60;
+    }
+    else{
+        alert('You gotta work!');
+    }
+}
+
+function workstart(){
+    work.start();
+
+    var complete = document.getElementById('work-comp')
+    complete.load();
+    setTimeout(function(){
+        complete.play();
+    },work.getTime().time*1000);
+}
+
+function chillstart(){
+    chill.start();
+    var complete = document.getElementById('chill-comp')
+    complete.load();
+    setTimeout(function(){
+        complete.play();
+    },work.getTime().time*1000);
+}
+
+function resetWork() {
+    work.stop()
+    work.setTime(workMinutes*60)
+}
+function resetChill() {
+    chill.stop()
+    chill.setTime(chillMinutes*60)
+}
+
+        </script>
+        <footer>
+        </footer>
+    </body>
+</html>
