@@ -10,7 +10,7 @@
   </head>
   <body>
   <style>
-  /*===========================================
+/*===========================================
 General Styles
 =============================================*/
 
@@ -24,13 +24,12 @@ html{
   position: relative;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-
   height: 100vh;
-  margin: 0 auto; /*all our rows will be centered*/
+
 }
 body{
   background-image: url("http://static.hdw.eweb4.com/media/wallpapers_2560x1600/photography/1/1/morning-dew-on-the-grass-photography-hd-wallpaper-2560x1600-6979.jpg");
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-size: 100% 100%;
   margin: 0;
   padding: 0;
@@ -38,7 +37,6 @@ body{
   font-family: Lato, Arial;
   max-width: 1500px; /*this is the only value that is absolute and in px*/
   color: #fff;
-  /*vertical/horizontal centering of container div*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,6 +44,7 @@ body{
 
 .container {
   opacity: 0.8;
+
 }
 
 h1 {
@@ -54,6 +53,7 @@ h1 {
   font-size: 1000%; /*relative to the html global fontsize which is at 20px*/
   word-spacing: 4px;
   letter-spacing: 1px;
+  margin: 20px 0;
 }
 h2 {
   font-size: 200%;
@@ -144,7 +144,7 @@ function getPosition(position) {
       //need to create a fallback/default url for when the user doesn want to share geolocation...
 
       //http://api.wunderground.com/api/API_KEY/37.252194,-121.360474.json
-      url: "http://api.wunderground.com/api/6ebce84ea19d610e/conditions/forecast/alert/q/" + latitude + "," + longitude + ".json",
+      url: "https://api.wunderground.com/api/6ebce84ea19d610e/conditions/forecast/alert/q/" + latitude + "," + longitude + ".json",
       dataType: "json",
       success: function(response) {
         var cityStateZip = response.current_observation.display_location.full + " " + response.current_observation.display_location.zip;
@@ -182,7 +182,7 @@ function clock() {
   var greetings = ['good morning!', "good afternoon!", "good evening!", "get some sleep!"];
   var wallpaper = [
     'http://www.hdwallpaperup.com/wp-content/uploads/2015/01/Sunset-on-Malibu-Beach-California.jpg',
-    'http://archwall.xyz/wp-content/uploads/2016/03/bridges-wonderful-view-thames-night-river-city-bridge-lights-ship-wallpaper-gallery.jpg',
+    'http://wallpaperbeta.com/wallpaper_high_contrast/california_america_evening_bridge_city_high_contrast_hd-wallpaper-409836.jpg',
     'http://2.bp.blogspot.com/_UeKpPmoedmk/TJttTsVSoZI/AAAAAAAAAik/161bEYBfUuc/s1600/Black%2Band%2BWhite%2BLos%2BAngeles%2BHarbor%2BWalp%2BTLG.png',
     'http://static.hdw.eweb4.com/media/wallpapers_2560x1600/photography/1/1/morning-dew-on-the-grass-photography-hd-wallpaper-2560x1600-6979.jpg'
   ];
@@ -283,6 +283,15 @@ clock();
   date.innerHTML = "<h2>" + "Today is " + currentDate.getDayName() + ", " + currentDate.getMonthName() + " " + 
   currentDate.getDaySuffix() + " "  + currentDate.getFullYear() + "</h2>";
 })();
+
+//analytics
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78080891-1', 'auto');
+  ga('send', 'pageview');
 
       </script>
     </footer>
