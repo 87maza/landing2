@@ -113,42 +113,31 @@ sup {
     <footer>
       <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
       <script>
-
-
-//create an object with random pictures that relate to time and weather of forecast
-
-var longitude;
-var latitude;
-(function geoloc() {
-    //firefox/safari will allow for local html/css/js file to receive geolocation, chrome does not!!!
-    //iife function to grab the location of the user
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(getPosition);
-    console.log(navigator.geolocation.getCurrentPosition(getPosition));
-  
-  }
-  else{
-    //message received if geolocation service is unavailable
-    console.log("no geolocation available!")
-  };
-})();
 var tempNowF;
 var tempNowC;
 
-function getPosition(position) {
-    //stores long/lats of client-side user
-    //still unsure of what parameter "position" is referring to getCurrentPosition takes in a callback
-    longitude = position.coords.longitude;
-    latitude = position.coords.latitude;
-    $.ajax({
-      //need to create a fallback/default url for when the user doesn want to share geolocation...
+(function geoloc() {
+  $.getJSON({
+    url: 'http://ip-api.com/json',
+    dataType: 'json',
+    success: function(res){
+      longitude = res.lon;
+      latitude = res.lat;
+      getPosition(latitude, longitude)
+    }
+  })
+})();
 
-      //http://api.wunderground.com/api/API_KEY/37.252194,-121.360474.json
-      url: "https://api.wunderground.com/api/6ebce84ea19d610e/conditions/forecast/alert/q/" + latitude + "," + longitude + ".json",
+function getPosition(lat,longit) {
+    //stores long/lats of client-side user
+    //still unsure of what parameter "position" is referring to getCurrentPosition takes in a callback  
+  
+    $.ajax({
+      //need to create a fallback/default url for when the user doesn want to share geolocation... 
+      url: "https://api.wunderground.com/api/6ebce84ea19d610e/conditions/forecast/alert/q/" + lat + "," + longit + ".json",
       dataType: "json",
       success: function(response) {
         var cityStateZip = response.current_observation.display_location.full + " " + response.current_observation.display_location.zip;
-        console.log(response);
         var weather_text = response.forecast.txt_forecast.forecastday[0].fcttext;
         tempNowF = response.current_observation.temp_f;
         tempNowC = response.current_observation.temp_c;
@@ -182,7 +171,7 @@ function clock() {
   var greetings = ['good morning!', "good afternoon!", "good evening!", "get some sleep!"];
   var wallpaper = [
     'http://www.hdwallpaperup.com/wp-content/uploads/2015/01/Sunset-on-Malibu-Beach-California.jpg',
-    'http://wallpaperbeta.com/wallpaper_high_contrast/california_america_evening_bridge_city_high_contrast_hd-wallpaper-409836.jpg',
+    'http://archwall.xyz/wp-content/uploads/2016/03/bridges-wonderful-view-thames-night-river-city-bridge-lights-ship-wallpaper-gallery.jpg',
     'http://2.bp.blogspot.com/_UeKpPmoedmk/TJttTsVSoZI/AAAAAAAAAik/161bEYBfUuc/s1600/Black%2Band%2BWhite%2BLos%2BAngeles%2BHarbor%2BWalp%2BTLG.png',
     'http://static.hdw.eweb4.com/media/wallpapers_2560x1600/photography/1/1/morning-dew-on-the-grass-photography-hd-wallpaper-2560x1600-6979.jpg'
   ];
@@ -283,6 +272,9 @@ clock();
   date.innerHTML = "<h2>" + "Today is " + currentDate.getDayName() + ", " + currentDate.getMonthName() + " " + 
   currentDate.getDaySuffix() + " "  + currentDate.getFullYear() + "</h2>";
 })();
+
+
+
 
 //analytics
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
