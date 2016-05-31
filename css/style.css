@@ -475,7 +475,14 @@ MAP AND CONTACT
   display: inline-block;
 }
 form {
-    margin:0
+    /*margin:0*/
+    max-width: 450px;
+    background: #FAFAFA;
+    padding: 30px;
+    margin: 50px auto;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    border: 6px solid #305A72;
 }
 form label {
     margin-bottom:.2em;
@@ -527,15 +534,58 @@ form input[type="text"].error, form textarea.error {
 fieldset {
     border:0px;
     margin:0;
-    padding:0
+    padding:0;
+    display: block;
+    /*margin-bottom: 10px;*/
+    min-height: 35px;
 }
+#name{float:left;}
+#email{float:right;}
+#name, #email{
+  width: 49%;
+}
+.textContact{
+  width: 100%;
+}
+#name, #email, .textContact{
+  padding: 8px;
+  outline: none;
+  border: 1px solid #B0CFE0;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+}
+#name:focus, #email:focus, .textContact:focus{
+  box-shadow: 0 0 5px #B0CFE0;
+  border:1px solid #B0CFE0;
+}
+textarea{
+  width: 100%;
+  height: 100px;
+}
+
+input[type="submit"] {
+  -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
+  box-shadow: inset 0px 1px 0px 0px #3985B1;
+  background-color: #216288;
+  border: 1px solid #17445E;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  padding: 8px 18px;
+  text-decoration: none;
+  font: 12px Arial, Helvetica, sans-serif;
+}
+
 .required {
     color:#e9266d
 }
 #success, #error {
     display:none
 }
-#success span, #erro span {
+#success span, #error span {
     display:block;
     position:relative;
     bottom: 10em;
