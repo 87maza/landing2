@@ -175,8 +175,9 @@ Nav-bar
 .hamburger{
   display:none;
 }
-.nav{
-
+.thumb{
+  width: 220px;
+  height: 160px;
 
 }
 .main-nav {
