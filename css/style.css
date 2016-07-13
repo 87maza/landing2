@@ -178,7 +178,6 @@ Nav-bar
 .thumb{
   width: 220px;
   height: 160px;
-
 }
 .main-nav {
     display: flex;
@@ -445,7 +444,7 @@ input:checked + label {
   /*height: inherit;*/
   padding: 5px 10px;
 }
-
+/*
 @media screen and (max-width: 650px) {
   label {
     font-size: 0;
@@ -460,7 +459,7 @@ input:checked + label {
   label {
     padding: 15px;
   }
-}
+}*/
 
 /*===========================================
 MAP AND CONTACT
@@ -736,6 +735,10 @@ footer:hover{
     top: 0;
   }
 
+.thumb{
+  width: 170px;
+  height: 160px;
+}
 
   .main-nav {
     display: flex;
