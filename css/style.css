@@ -454,12 +454,12 @@ input:checked + label {
     font-size: 18px;
   }
 }
-
+*/
 @media screen and (max-width: 400px) {
   label {
-    padding: 15px;
+    padding: 13px 5px;
   }
-}*/
+}
 
 /*===========================================
 MAP AND CONTACT
